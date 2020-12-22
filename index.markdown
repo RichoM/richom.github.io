@@ -73,6 +73,15 @@ An interactive visualization of the [Julia Set](https://en.wikipedia.org/wiki/Ju
 ![julia-set](imgs/julia-set.png)
 
 ---
+## Wizards of Lezama
+
+I worked on this game with a couple of friends. I was in charge of programming, [Sebastián Blanco](https://www.papacorps.com/) did the game design, [Camila Martorelli](https://www.instagram.com/cosmicmagpie/) was responsible for the art, and [Sebastián Codex](https://twitter.com/sebastiancodex) composed the music. Although we never finished this project we did release an early alpha, so you can check it out if you want (I'm not sure if the server is still up, though).
+
+- Links: [Website](https://www.papacorps.com/wizards-of-lezama)
+
+![wol](imgs/wol.png)
+
+---
 ## Esclava (card game)
 
 This is a card game that my ex used to play with her friends. I don't really understand what's fun about it and I don't remember the rules. The code is a mess, but you could probably get a sense of what the game is about by looking at it. Also, this was a useful exercise to learn about [firebase](https://firebase.google.com/).
@@ -134,3 +143,21 @@ This is a small utility program I made to help me diagnose some disk space probl
 - Links: [Download](https://github.com/RichoM/DiskSpaceAnalyzer/releases), [Source code](https://github.com/RichoM/DiskSpaceAnalyzer)
 
 ![disk-space-analyzer](imgs/disk-space-analyzer.png)
+
+---
+## GSoC: Squeakland Education Project
+
+In 2010 I participated as a student in the [Google Summer of Code](https://summerofcode.withgoogle.com/) program for the Smalltalk community (under the umbrella of the [European Smalltalk User Group](https://esug.github.io/)). It was a great experience, I learned a lot, I got to meet some awesome people such as [Randy Caton](https://www.pcs.cnu.edu/~rcaton/) (who was my mentor for the project), and I had a lot of fun.
+
+- Links: [Proposal](http://gsoc2010.esug.org/projects/squeakland-education), [Results](https://www.pcs.cnu.edu/~rcaton/ESUG/ESUG.html)
+
+![gsoc](imgs/gsoc.png)
+
+---
+## RobotSoccer
+
+This was a simple framework that allowed to participate in Robot Soccer competitions using [Squeak Smalltalk](https://squeak.org/). It was designed to support different robots by changing the robot abstraction layer: we implemented adapters for virtual robots from the [FIRA simurosot](https://www.firaworldcup.org/VisitorPages/show.aspx?ItemID=805,0) category, real robots made with [Lego NXT](https://en.wikipedia.org/wiki/Lego_Mindstorms_NXT), and home-made robots.
+
+- Links: [Source code](http://www.squeaksource.com/RobotSoccer.html)
+
+![robot-soccer](imgs/robot-soccer.png)
