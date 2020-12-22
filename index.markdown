@@ -91,6 +91,15 @@ This is just a very basic and incomplete implementation of the [Morphic UI frame
 ![mini-morphic-js](imgs/mini-morphic-js.png)
 
 ---
+## Physical Etoys
+
+Physical Etoys is a free open-source extension of [Etoys](https://en.wikipedia.org/wiki/Etoys_(programming_language)) developed by Gonzalo Zabala, Sebastián Blanco, Matías Teragni, and myself at the Universidad Abierta Interamericana. Physical Etoys allows to easily program different electronic devices such as [Lego NXT](https://en.wikipedia.org/wiki/Lego_NXT), [Arduino](https://en.wikipedia.org/wiki/Arduino) boards, [Sphero](https://en.wikipedia.org/wiki/Sphero), [Kinect](https://en.wikipedia.org/wiki/Kinect), [Wiimote](https://en.wikipedia.org/wiki/Wiimote) joystick, among others.
+
+- Links: [Wikipedia page](https://en.wikipedia.org/wiki/Physical_Etoys)
+
+![physical-etoys](imgs/physical-etoys.png)
+
+---
 ## dotnet.Database
 
 This is just a thin wrapper around ADO.NET that makes it *less* annoying to run SQL queries in .Net.
