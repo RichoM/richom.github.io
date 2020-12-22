@@ -7,7 +7,7 @@ layout: page
 
 Here are some things I made.
 
----
+![separator](imgs/separator.png)
 ## Physical Bits
 
 Physical Bits is a web-based programming environment for educational robotics that supports live coding and autonomy using a hybrid blocks/text programming language.
@@ -18,7 +18,8 @@ Physical Bits is a web-based programming environment for educational robotics th
 
 ![test](imgs/liveness2.gif)
 
----
+![separator](imgs/separator.png)
+
 ## webots-blockly
 
 Webots-blockly is an blocks-based editor for the Sumo competition in the [Roboliga Virtual 2020](https://github.com/gzabala/RoboligaVirtual). Roboliga is an annual educational robotics event in which argentinian students get together to compete and show their projects. Due to Covid-19 the 2020 event was held online with the help of the [webots simulator](https://cyberbotics.com/). In order to help younger students with their robot programming I made this editor that generates python code from blocks.
@@ -27,7 +28,7 @@ Webots-blockly is an blocks-based editor for the Sumo competition in the [Roboli
 
 ![webots-blockly](imgs/webots-blockly.png)
 
----
+![separator](imgs/separator.png)
 ## Paper Airplane
 
 This is a simple game about a paper airplane lost in space that has to avoid crashing into asteroids. It's really nothing more than a Flappy Bird clone but I like this game because it's easy to program and fun to play. I tend to use it as a learning exercise whenever I try a new game engine. In this case, [Godot](https://godotengine.org/).
@@ -36,7 +37,7 @@ This is a simple game about a paper airplane lost in space that has to avoid cra
 
 ![paper-airplane](imgs/paper-airplane.png)
 
----
+![separator](imgs/separator.png)
 ## Low Poly Racing
 
 This was going to be a racing game, but I got bored before building the race track so I left it incomplete. Maybe I'll finish it someday, who knows...
@@ -45,7 +46,7 @@ This was going to be a racing game, but I got bored before building the race tra
 
 ![lowpolyracing](imgs/lowpolyracing.png)
 
----
+![separator](imgs/separator.png)
 ## Sunset Flight
 
 Just an airplane flying through the mountains at sunset.
@@ -54,7 +55,7 @@ Just an airplane flying through the mountains at sunset.
 
 ![sunset-flight](imgs/sunset-flight.png)
 
----
+![separator](imgs/separator.png)
 ## Terrain Generation
 
 These are some scenes I made while learning about procedural content generation using [Godot](https://godotengine.org/).
@@ -63,7 +64,7 @@ These are some scenes I made while learning about procedural content generation 
 
 ![terrain-generation](imgs/terrain-generation.png)
 
----
+![separator](imgs/separator.png)
 ## Julia Set
 
 An interactive visualization of the [Julia Set](https://en.wikipedia.org/wiki/Julia_set). I made this to learn about shader programming.
@@ -72,7 +73,7 @@ An interactive visualization of the [Julia Set](https://en.wikipedia.org/wiki/Ju
 
 ![julia-set](imgs/julia-set.png)
 
----
+![separator](imgs/separator.png)
 ## Wizards of Lezama
 
 I worked on this game with a couple of friends. I was in charge of programming, [Sebastián Blanco](https://www.papacorps.com/) did the game design, [Camila Martorelli](https://www.instagram.com/cosmicmagpie/) was responsible for the art, and [Sebastián Codex](https://twitter.com/sebastiancodex) composed the music. Although we never finished this project we did release an early alpha, so you can check it out if you want (I'm not sure if the server is still up, though).
@@ -81,7 +82,7 @@ I worked on this game with a couple of friends. I was in charge of programming, 
 
 ![wol](imgs/wol.png)
 
----
+![separator](imgs/separator.png)
 ## Esclava (card game)
 
 This is a card game that my ex used to play with her friends. I don't really understand what's fun about it and I don't remember the rules. The code is a mess, but you could probably get a sense of what the game is about by looking at it. Also, this was a useful exercise to learn about [firebase](https://firebase.google.com/).
@@ -90,7 +91,7 @@ This is a card game that my ex used to play with her friends. I don't really und
 
 ![esclava](imgs/esclava.png)
 
----
+![separator](imgs/separator.png)
 ## MiniMorphicJS
 
 This is just a very basic and incomplete implementation of the [Morphic UI framework](http://wiki.squeak.org/squeak/morphic) written in Javascript.
@@ -99,7 +100,7 @@ This is just a very basic and incomplete implementation of the [Morphic UI frame
 
 ![mini-morphic-js](imgs/mini-morphic-js.png)
 
----
+![separator](imgs/separator.png)
 ## Physical Etoys
 
 Physical Etoys is a free open-source extension of [Etoys](https://en.wikipedia.org/wiki/Etoys_(programming_language)) developed by Gonzalo Zabala, Sebastián Blanco, Matías Teragni, and myself at the Universidad Abierta Interamericana. Physical Etoys allows to easily program different electronic devices such as [Lego NXT](https://en.wikipedia.org/wiki/Lego_NXT), [Arduino](https://en.wikipedia.org/wiki/Arduino) boards, [Sphero](https://en.wikipedia.org/wiki/Sphero), [Kinect](https://en.wikipedia.org/wiki/Kinect), [Wiimote](https://en.wikipedia.org/wiki/Wiimote) joystick, among others.
@@ -108,7 +109,7 @@ Physical Etoys is a free open-source extension of [Etoys](https://en.wikipedia.o
 
 ![physical-etoys](imgs/physical-etoys.png)
 
----
+![separator](imgs/separator.png)
 ## dotnet.Database
 
 This is just a thin wrapper around ADO.NET that makes it *less* annoying to run SQL queries in .Net.
@@ -135,7 +136,7 @@ var rows = db
     });
 ```
 
----
+![separator](imgs/separator.png)
 ## Disk Space Analyzer
 
 This is a small utility program I made to help me diagnose some disk space problems (Windows only).
@@ -144,7 +145,7 @@ This is a small utility program I made to help me diagnose some disk space probl
 
 ![disk-space-analyzer](imgs/disk-space-analyzer.png)
 
----
+![separator](imgs/separator.png)
 ## GSoC: Squeakland Education Project
 
 In 2010 I participated as a student in the [Google Summer of Code](https://summerofcode.withgoogle.com/) program for the Smalltalk community (under the umbrella of the [European Smalltalk User Group](https://esug.github.io/)). It was a great experience, I learned a lot, I got to meet some awesome people such as [Randy Caton](https://www.pcs.cnu.edu/~rcaton/) (who was my mentor for the project), and I had a lot of fun.
@@ -153,7 +154,7 @@ In 2010 I participated as a student in the [Google Summer of Code](https://summe
 
 ![gsoc](imgs/gsoc.png)
 
----
+![separator](imgs/separator.png)
 ## RobotSoccer
 
 This was a simple framework that allowed to participate in Robot Soccer competitions using [Squeak Smalltalk](https://squeak.org/). It was designed to support different robots by changing the robot abstraction layer: we implemented adapters for virtual robots from the [FIRA simurosot](https://www.firaworldcup.org/VisitorPages/show.aspx?ItemID=805,0) category, real robots made with [Lego NXT](https://en.wikipedia.org/wiki/Lego_Mindstorms_NXT), and home-made robots.
