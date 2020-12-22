@@ -8,11 +8,15 @@ layout: page
 Here are some things I made.
 
 ![separator](imgs/separator.png)
-## Physical Bits
 
-Physical Bits is a web-based programming environment for educational robotics that supports live coding and autonomy using a hybrid blocks/text programming language.
+![logo](https://gira.github.io/PhysicalBits/img/logo.png)
+
+Physical Bits is a __web-based programming environment__ for __educational robotics__ that supports __live coding__ and __autonomy__ using a __hybrid blocks/text__ programming language.
 
 - Links: [Website](https://gira.github.io/PhysicalBits/), [Source code](https://github.com/GIRA/PhysicalBits)
+- Publications:
+  - [A Concurrent Programming Language for Arduino and Educational Robotics (2017)](http://sedici.unlp.edu.ar/handle/10915/63529)
+  - [On the Design and Implementation of a Virtual Machine for Arduino (2017)](https://link.springer.com/chapter/10.1007/978-3-319-42975-5_19)
 
 ![test](imgs/blocks-code.gif)
 
