@@ -89,3 +89,39 @@ This is just a very basic and incomplete implementation of the [Morphic UI frame
 - Links: [Demo 1](http://richom.github.io/MiniMorphicJS/demo.html), [Demo 2](http://richom.github.io/MiniMorphicJS/cards.html), [Demo 3](http://richom.github.io/MiniMorphicJS/puzzle.html), [Source code](https://github.com/RichoM/MiniMorphicJS)
 
 ![mini-morphic-js](imgs/mini-morphic-js.png)
+
+---
+## dotnet.Database
+
+This is just a thin wrapper around ADO.NET that makes it *less* annoying to run SQL queries in .Net.
+
+- Links: [Nuget package](https://www.nuget.org/packages/RichoM.Database/), [Source code](https://github.com/RichoM/dotnet.Database)
+
+```c#
+var db = new Database<SqlConnection>("your connection string");
+
+// Execute INSERT
+db.NonQuery("INSERT INTO Test (id, name) VALUES (@id, @name)")
+    .WithParameter("@id", Guid.NewGuid())
+    .WithParameter("@name", "Juan")
+    .Execute();
+
+// Execute SELECT
+var rows = db
+    .Query("SELECT id, name FROM Test")
+    .Select(row =>
+    {
+        Guid id = row.GetGuid("id");
+        string name = row.GetString("name");
+        return new Tuple<Guid, string>(id, name);
+    });
+```
+
+---
+## Disk Space Analyzer
+
+This is a small utility program I made to help me diagnose some disk space problems (Windows only).
+
+- Links: [Download](https://github.com/RichoM/DiskSpaceAnalyzer/releases), [Source code](https://github.com/RichoM/DiskSpaceAnalyzer)
+
+![disk-space-analyzer](imgs/disk-space-analyzer.png)
