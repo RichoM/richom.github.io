@@ -15,19 +15,37 @@ Here are some things I made.
 
 Physical Bits is a __web-based programming environment__ for __educational robotics__ that supports __live coding__ and __autonomy__ using a __hybrid blocks/text__ programming language.
 
+![line-follower](imgs/line_follower.gif)
+
+### A little bit of history
+
+I started this project a couple of years ago as an attempt to fix a limitation of [Physical Etoys](#physical-etoys). At the time, Physical Etoys allowed to program Arduino boards (as well as several other robotic kits such as [Lego NXT](https://en.wikipedia.org/wiki/Lego_NXT)) using the [Etoys](https://en.wikipedia.org/wiki/Etoys_(programming_language)) scripting system. This was great, but it meant that the robots had to always be connected to the computer running Physical Etoys. This was a problem.
+
+My first solution was to simply translate the Etoys scripts (which were actually Smalltalk code) to C++, compile this code and upload it to the robot. I did this for both Arduino and Lego NXT (which was annoying because they required slightly different code). My little compiler worked well enough and it allowed us to run Physical Etoys scripts autonomously, but it was soon evident that in our search for robot autonomy we lost everything that was great about Physical Etoys: the live environment, the instant feedback, the monitoring capabilities, and the ability to easily make different electronic devices interact with each other in interesting ways.
+
+![liveness](imgs/liveness2.gif)
+> Physical Bits programs are live: every change you make is automatically compiled and transmitted to the robot so you can instantly see the effects of your change. And once you're happy with your program you can store it permanently and unplug your board from the computer. The program will now run autonomously, without requiring a connection to the computer.
+
+We needed some other solution so I decided to make a firmware that was capable of not only interact with the computer through serial port commands but also to run programs autonomously. To that end, I started working on a small bytecode virtual machine that I could upload to the robot alongside our custom firmware (which at the time was just a less capable version of [Firmata](https://github.com/firmata/arduino)). I decided to start with Arduino (which seemed to be the most popular platform) and later port this to Lego NXT (this port never happened, though).
+
+![blocks-code](imgs/blocks-code.gif)
+> Physical Bits includes a block-based programming language suitable for beginners but it also supports text-based programming for more advanced users. To ease the transition the environment automatically generates the textual code from the blocks (and viceversa).
+
+Anyway, this small side project of mine eventually grew into its own thing, more people joined the [team](https://gira.github.io/PhysicalBits/about/) and contributed code an ideas, we designed and developed a custom programming language for educational robotics, we added a visual editor (based on [Blockly](https://developers.google.com/blockly/)), we implemented bidirectional translation of blocks/code, we added a simple debugger, and we packaged everything into an [electron](https://www.electronjs.org/) app.
+
+Altough this project is far from over, we have released a few versions that you can freely download and try. If you do, please let us know what you think.
+
+
+
+### More info
+
 - Links:
-  - [Website](https://gira.github.io/PhysicalBits/)
+  - [Official website](https://gira.github.io/PhysicalBits/)
+  - [Download](https://gira.github.io/PhysicalBits/download/)
   - [Source code](https://github.com/GIRA/PhysicalBits)
 - Publications:
   - [A Concurrent Programming Language for Arduino and Educational Robotics (2017)](http://sedici.unlp.edu.ar/handle/10915/63529)
   - [On the Design and Implementation of a Virtual Machine for Arduino (2017)](https://link.springer.com/chapter/10.1007/978-3-319-42975-5_19)
-
-![line-follower](imgs/line_follower.gif)
-
-![blocks-code](imgs/blocks-code.gif)
-
-![liveness](imgs/liveness2.gif)
-
 
 If you want to see Physical Bits in action you can watch this [demo](https://youtu.be/VMX5ltAYxYY). It's recorded in spanish but it has english subtitles.
 
