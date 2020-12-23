@@ -9,7 +9,7 @@ Here are some things I made.
 
 ![separator](imgs/separator.png)
 
-![logo](https://gira.github.io/PhysicalBits/img/logo.png)
+## ![logo](https://gira.github.io/PhysicalBits/img/logo.png) {#physical-bits}
 
 Physical Bits is a __web-based programming environment__ for __educational robotics__ that supports __live coding__ and __autonomy__ using a __hybrid blocks/text__ programming language.
 
