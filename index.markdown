@@ -22,6 +22,8 @@ Physical Bits is a __web-based programming environment__ for __educational robot
   - [A Concurrent Programming Language for Arduino and Educational Robotics (2017)](http://sedici.unlp.edu.ar/handle/10915/63529)
   - [On the Design and Implementation of a Virtual Machine for Arduino (2017)](https://link.springer.com/chapter/10.1007/978-3-319-42975-5_19)
 
+![line-follower](imgs/line_follower.gif)
+
 ![blocks-code](imgs/blocks-code.gif)
 
 ![liveness](imgs/liveness2.gif)
