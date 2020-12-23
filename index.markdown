@@ -9,7 +9,7 @@ Here are some things I made.
 
 ![separator](imgs/separator.png)
 
-## ![logo](https://gira.github.io/PhysicalBits/img/logo.png) {#physical-bits}
+## ![logo](imgs/logo.png) {#physical-bits}
 
 Physical Bits is a __web-based programming environment__ for __educational robotics__ that supports __live coding__ and __autonomy__ using a __hybrid blocks/text__ programming language.
 
@@ -18,9 +18,18 @@ Physical Bits is a __web-based programming environment__ for __educational robot
   - [A Concurrent Programming Language for Arduino and Educational Robotics (2017)](http://sedici.unlp.edu.ar/handle/10915/63529)
   - [On the Design and Implementation of a Virtual Machine for Arduino (2017)](https://link.springer.com/chapter/10.1007/978-3-319-42975-5_19)
 
-![test](imgs/blocks-code.gif)
+![blocks-code](imgs/blocks-code.gif)
 
-![test](imgs/liveness2.gif)
+![liveness](imgs/liveness2.gif)
+
+
+If you want to see Physical Bits in action you can watch this [demo](https://youtu.be/VMX5ltAYxYY). It's recorded in spanish but it has english subtitles.
+
+<p align="center">  
+  <a href="https://youtu.be/VMX5ltAYxYY">
+    <img src="https://gira.github.io/PhysicalBits/img/youtube_1.png">  
+  </a>
+</p>
 
 ![separator](imgs/separator.png)
 
