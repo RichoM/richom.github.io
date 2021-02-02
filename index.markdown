@@ -44,6 +44,7 @@ Altough this project is far from over, we have released a few versions that you 
   - [Download](https://gira.github.io/PhysicalBits/download/)
   - [Source code](https://github.com/GIRA/PhysicalBits)
 - Publications:
+  - [Physical Bits: A Live Programming Environment for Educational Robotics (2021)](https://link.springer.com/chapter/10.1007%2F978-3-030-67411-3_26)
   - [A Concurrent Programming Language for Arduino and Educational Robotics (2017)](http://sedici.unlp.edu.ar/handle/10915/63529)
   - [On the Design and Implementation of a Virtual Machine for Arduino (2017)](https://link.springer.com/chapter/10.1007/978-3-319-42975-5_19)
 
