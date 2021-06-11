@@ -2,20 +2,20 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: page
+layout: home
 ---
 
 Here are some things I made.
 
 ![separator](imgs/separator.png)
 
-## ![logo](imgs/logo.png) {#physical-bits}
+## [![logo](imgs/logo.png)](https://gira.github.io/PhysicalBits/) {#physical-bits}
 
-(2014-2020)
+(2014-2021)
 
 Physical Bits is a __web-based programming environment__ for __educational robotics__ that supports __live coding__ and __autonomy__ using a __hybrid blocks/text__ programming language.
 
-![line-follower](imgs/line_follower.gif)
+[![line-follower](imgs/line_follower.gif)](https://gira.github.io/PhysicalBits/)
 
 ### A little bit of history
 
@@ -23,12 +23,12 @@ I started this project a couple of years ago as an attempt to fix a limitation o
 
 My first solution was to simply translate the Etoys scripts (which were actually Smalltalk code) to C++, compile this code and upload it to the robot. I did this for both Arduino and Lego NXT (which was annoying because they required slightly different code). My little compiler worked well enough and it allowed us to run Physical Etoys scripts autonomously, but it was soon evident that in our search for robot autonomy we lost everything that was great about Physical Etoys: the live environment, the instant feedback, the monitoring capabilities, and the ability to easily make different electronic devices interact with each other in interesting ways.
 
-![liveness](imgs/liveness2.gif)
+[![liveness](imgs/liveness2.gif)](https://gira.github.io/PhysicalBits/)
 > Programming in Physical Bits is an interactive experience: every change you make is automatically compiled and transmitted to the robot so you can instantly see the effects of your change. And once you're happy with your program you can store it permanently and unplug your board from the computer. The program will now run autonomously, without requiring a connection to the computer.
 
 We needed some other solution so I decided to make a firmware that was capable of not only interact with the computer through serial port commands but also to run programs autonomously. To that end, I started working on a small bytecode virtual machine that I could upload to the robot alongside our custom firmware (which at the time was just a less capable version of [Firmata](https://github.com/firmata/arduino)). I decided to start with Arduino (which seemed to be the most popular platform) and later port this to Lego NXT (this port never happened, though).
 
-![blocks-code](imgs/blocks-code.gif)
+[![blocks-code](imgs/blocks-code.gif)](https://gira.github.io/PhysicalBits/)
 > Physical Bits includes a block-based programming language suitable for beginners but it also supports text-based programming for more advanced users. To ease the transition the environment automatically generates the textual code from the blocks (and viceversa).
 
 Anyway, this small side project of mine eventually grew into its own thing, more people joined the [team](https://gira.github.io/PhysicalBits/about/) and contributed code an ideas, we designed and developed a custom programming language for educational robotics, we added a visual editor (based on [Blockly](https://developers.google.com/blockly/)), we implemented bidirectional translation of blocks/code, we added a simple debugger, and we packaged everything into an [electron](https://www.electronjs.org/) app.
@@ -36,11 +36,11 @@ Anyway, this small side project of mine eventually grew into its own thing, more
 Altough this project is far from over, we have released a few versions that you can freely download and try. If you do, please let us know what you think.
 
 
-
 ### More info
 
 - Links:
   - [Official website](https://gira.github.io/PhysicalBits/)
+  - [Online demo](https://gira.github.io/PhysicalBits/demo/)
   - [Download](https://gira.github.io/PhysicalBits/download/)
   - [Source code](https://github.com/GIRA/PhysicalBits)
 - Publications:
@@ -50,11 +50,25 @@ Altough this project is far from over, we have released a few versions that you 
 
 If you want to see Physical Bits in action you can watch this [demo](https://youtu.be/VMX5ltAYxYY). It's recorded in spanish but it has english subtitles.
 
-<p align="center">  
-  <a href="https://youtu.be/VMX5ltAYxYY">
-    <img src="https://gira.github.io/PhysicalBits/img/youtube_1.png">  
-  </a>
-</p>
+<iframe width="100%" height="416" src="https://www.youtube.com/embed/VMX5ltAYxYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+![separator](imgs/separator.png)
+
+## Low Poly Racing
+
+(2020-2021)
+
+This was going to be a racing game, but I got bored before building the race track so I left it incomplete. Maybe I'll finish it someday, who knows...
+
+UPDATE 2021/06/11: At last, I added a racetrack.
+
+- Links:
+  - [Play online! (new racetrack)](https://richom.github.io/LowPolyRacing/build/race.html)
+  - [Play online! (old demo)](https://richom.github.io/LowPolyRacing/build/demo.html)
+  - [Source code](https://github.com/RichoM/LowPolyRacing)
+
+[![lowpolyracing](imgs/lowpolyracing2.png)](https://richom.github.io/LowPolyRacing/build/race.html)
 
 ![separator](imgs/separator.png)
 
@@ -69,7 +83,7 @@ Webots-blockly is an blocks-based editor for the Sumo competition in the [Roboli
   - [Download](https://github.com/RichoM/webots-blockly/releases)
   - [Source code](https://github.com/RichoM/webots-blockly)
 
-![webots-blockly](imgs/webots-blockly.png)
+[![webots-blockly](imgs/webots-blockly.png)](https://richom.github.io/webots-blockly/editor/)
 
 ![separator](imgs/separator.png)
 
@@ -80,24 +94,10 @@ Webots-blockly is an blocks-based editor for the Sumo competition in the [Roboli
 This is a simple game about a paper airplane lost in space that has to avoid crashing into asteroids. It's really nothing more than a Flappy Bird clone but I like this game because it's easy to program and fun to play. I tend to use it as a learning exercise whenever I try a new game engine. In this case, [Godot](https://godotengine.org/).
 
 - Links:
-  - [Play online](https://richom.github.io/PaperAirplane/build/demo.html)
+  - [Play online!](https://richom.github.io/PaperAirplane/build/demo.html)
   - [Source code](https://github.com/RichoM/PaperAirplane)
 
-![paper-airplane](imgs/paper-airplane.png)
-
-![separator](imgs/separator.png)
-
-## Low Poly Racing
-
-(2020)
-
-This was going to be a racing game, but I got bored before building the race track so I left it incomplete. Maybe I'll finish it someday, who knows...
-
-- Links:
-  - [Play online](https://richom.github.io/LowPolyRacing/build/demo.html)
-  - [Source code](https://github.com/RichoM/LowPolyRacing)
-
-![lowpolyracing](imgs/lowpolyracing.png)
+[![paper-airplane](imgs/paper-airplane.png)](https://richom.github.io/PaperAirplane/build/demo.html)
 
 ![separator](imgs/separator.png)
 
@@ -108,10 +108,10 @@ This was going to be a racing game, but I got bored before building the race tra
 Just an airplane flying through the mountains at sunset.
 
 - Links:
-  - [Play online](https://richom.github.io/SunsetFlight/build/demo.html)
+  - [Play online!](https://richom.github.io/SunsetFlight/build/demo.html)
   - [Source code](https://github.com/RichoM/SunsetFlight)
 
-![sunset-flight](imgs/sunset-flight.png)
+[![sunset-flight](imgs/sunset-flight.png)](https://richom.github.io/SunsetFlight/build/demo.html)
 
 ![separator](imgs/separator.png)
 
@@ -126,7 +126,7 @@ These are some scenes I made while learning about procedural content generation 
   - [Demo 2 - Infinite terrain](https://richom.github.io/TerrainGeneration/InfiniteTerrain/build/demo.html)
   - [Source code](https://github.com/RichoM/SunsetFlight)
 
-![terrain-generation](imgs/terrain-generation.png)
+[![terrain-generation](imgs/terrain-generation.png)](https://richom.github.io/TerrainGeneration/SimpleTerrain/build/demo.html)
 
 ![separator](imgs/separator.png)
 
@@ -140,7 +140,7 @@ An interactive visualization of the [Julia Set](https://en.wikipedia.org/wiki/Ju
   - [Online demo](https://richom.github.io/JuliaSet/build/demo.html)
   - [Source code](https://github.com/RichoM/JuliaSet)
 
-![julia-set](imgs/julia-set.png)
+[![julia-set](imgs/julia-set.png)](https://richom.github.io/JuliaSet/build/demo.html)
 
 ![separator](imgs/separator.png)
 
@@ -153,7 +153,7 @@ I worked on this game with a couple of friends. I was in charge of programming, 
 - Links:
   - [Website](https://www.papacorps.com/wizards-of-lezama)
 
-![wol](imgs/wol.png)
+[![wol](imgs/wol.png)](https://www.papacorps.com/wizards-of-lezama)
 
 ![separator](imgs/separator.png)
 
@@ -167,7 +167,7 @@ This is a card game that my ex used to play with her friends. I don't really und
   - [Play online](https://richom.github.io/cards-game-js/esclava4.html)
   - [Source code](https://github.com/RichoM/cards-game-js)
 
-![esclava](imgs/esclava.png)
+[![esclava](imgs/esclava.png)](https://richom.github.io/cards-game-js/esclava4.html)
 
 ![separator](imgs/separator.png)
 
@@ -183,7 +183,7 @@ This is just a very basic and incomplete implementation of the [Morphic UI frame
   - [Demo 3 (morph hierarchy)](http://richom.github.io/MiniMorphicJS/puzzle.html)
   - [Source code](https://github.com/RichoM/MiniMorphicJS)
 
-![mini-morphic-js](imgs/mini-morphic-js.png)
+[![mini-morphic-js](imgs/mini-morphic-js.png)](http://richom.github.io/MiniMorphicJS/demo.html)
 
 ![separator](imgs/separator.png)
 
