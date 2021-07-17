@@ -5,7 +5,7 @@
 layout: home
 ---
 
-Here are some things I made.
+I'm a programmer and here are some things I made. Find more on my [github page](https://github.com/RichoM).
 
 ![separator](imgs/separator.png)
 
@@ -51,6 +51,21 @@ Altough this project is far from over, we have released a few versions that you 
 If you want to see Physical Bits in action you can watch this [demo](https://youtu.be/VMX5ltAYxYY). It's recorded in spanish but it has english subtitles.
 
 <iframe width="100%" height="416" src="https://www.youtube.com/embed/VMX5ltAYxYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+![separator](imgs/separator.png)
+
+## Simplex Noise test
+
+(2021)
+
+I made this project to learn about simplex noise for procedural terrain generation and I ended up making a simple planet building tool that you can [try online](https://richom.github.io/SimplexNoiseTest/godot/build/demo.html).
+
+- Links:
+  - [Planet generator demo](https://richom.github.io/SimplexNoiseTest/godot/build/demo.html)
+  - [Source code](https://github.com/RichoM/SimplexNoiseTest)
+
+[![planetgenerator](imgs/planets.png)](https://richom.github.io/SimplexNoiseTest/)
 
 
 ![separator](imgs/separator.png)
@@ -161,7 +176,7 @@ I worked on this game with a couple of friends. I was in charge of programming, 
 
 (2020)
 
-This is a card game that my ex used to play with her friends. I don't really understand what's fun about it and I don't remember the rules. The code is a mess, but you could probably get a sense of what the game is about by looking at it. Also, this was a useful exercise to learn about [firebase](https://firebase.google.com/).
+This is a card game that my ex used to play with her friends. I don't really remember the rules and although the code is kind of a mess, you could probably get a sense of what the game is about by looking at it. Also, this was a useful exercise to learn about [firebase](https://firebase.google.com/).
 
 - Links:
   - [Play online](https://richom.github.io/cards-game-js/esclava4.html)
