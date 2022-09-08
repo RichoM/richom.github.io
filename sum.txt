@@ -1,1 +1,1 @@
-https://sum-richo.herokuapp.com/
+https://sum.fly.dev/
