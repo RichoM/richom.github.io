@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Ricardo Moran">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    
+    <link type="text/css" rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  	<link type="text/css" rel="stylesheet" href="libs/openfontlibrary/charger.css" media="screen"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-base.css" integrity="sha512-rGtzJyDE8egZ/OScuBNLW1EIhRydcfrZo14oTvZwRLzEZu+s8foCtwi0XhXsKnhuoQAwJ7POFARWdU4fBL7FbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-light-theme.css" integrity="sha512-/S3N+v8cRHW2GJvM3v9FGHAKOhNgws+V1dYZb1fBxRd9XIwpqZFZB0jug+2HHf64eURsJLqVzCVn92pQTFHHow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link type="text/css" rel="stylesheet" href="ide.css" />
+
+  </head>
+  <body>
+    <input id="open-file-input" type="file" style="display: none;" accept=".py">
+    <div id="container" class="fullscreen">
+      <div id="top-bar">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img src="roboliga.png" />
+          </div>
+          <div class="col-auto">
+            <div class="btn-group mb-2" role="toolbar" aria-label="...">
+              <button id="new-button" type="button" class="btn btn-info">
+                <i class="fas fa-file mr-1"></i>
+                <span lang="en">New...</span>
+              </button>
+              <button id="open-button" type="button" class="btn btn-info">
+                <i class="fas fa-folder-open mr-1"></i>
+                <span lang="en">Open...</span>
+              </button>
+              <button id="save-button" type="button" class="btn btn-info">
+                <i class="fas fa-save mr-1"></i>
+                <span lang="en">Save as...</span>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div id="layout-container"></div>
+    </div>
+    <div id="hidden-panels" style="display: none;">
+
+      <div id="blocks-panel" class="fullscreen">
+        <div id="blocks-editor"></div>
+        <div id="blockly" style="position: absolute;"></div>
+      </div>
+
+      <div id="code-panel">
+        <div id="code-editor"></div>
+      </div>
+
+      <div id="output-panel" class="fullscreen scrollable px-2">
+        <pre id="output-console" ></pre>
+      </div>
+    </div>
+
+    <table id="spinner-container"  class="fullscreen">
+      <tbody>
+        <tr>
+          <td class="align-middle text-center">
+            <i class="fas fa-circle-notch fa-spin fa-5x"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Blockly Globals Modal -->
+    <div class="modal fade" id="blockly-variables-modal" tabindex="-1" role="dialog" aria-hidden="false">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" lang="en">Configure variables</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="blockly-variables-modal-container" class="container">
+              <div class="row">
+                <table class="table table-borderless text-center">
+                  <thead>
+                    <tr>
+                      <th class="text-center" lang="en">Variable name</th>
+                      <th class="text-center">
+                        <button id="add-variable-row-button" class="btn btn-sm btn-outline-success" type="button">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="blockly-variables-modal-container-tbody"></tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toolbox -->
+    <!-- 
+    NOTE(Richo): I added the toolbox here because, for some reason, when we load the editor as a webots window we 
+    can't fetch the xml file from the server so I decided to simply place the toolbox here and get it from the DOM.
+    -->
+    <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+      <category name="Start" colour="#5ba5a5">
+        <block type="simulator_setup"></block>
+        <block type="simulator_loop"></block>
+      </category>
+
+      <category name="Motores" colour="0">
+        <block type="move_motor">
+          <field name="motorName">motorIzquierdo</field>
+          <value name="motorSpeed">
+            <shadow type="number">
+              <field name="value">100</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="stop_motor">
+          <field name="motorName">motorIzquierdo</field>
+        </block>
+        <block type="motor_is_moving">
+          <field name="motorName">motorIzquierdo</field>
+        </block>
+      </category>
+
+      <category name="Sensores" colour="0">      
+        <block type="sonar_get_distance"></block>
+        <block type="floor_get_brightness"></block>
+      </category>
+
+      <category name="Printing" colour="140">
+        <block type="print">
+          <value name="value">
+            <shadow type="string_constant">
+              <field name="value">Hola mundo</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="string_concat">
+          <value name="left">
+            <shadow type="string_constant">
+              <field name="value">Hola </field>
+            </shadow>
+          </value>
+          <value name="right">
+            <shadow type="string_constant">
+              <field name="value">mundo</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="string_constant">
+          <field name="value">Hola mundo</field>
+        </block>
+      </category>
+      <category name="Control" colour="#5b80a5">
+        <block type="conditional_simple">
+          <value name="condition">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="conditional_full">
+          <value name="condition">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="boolean">
+          <field name="value">true</field>
+        </block>
+        <block type="logical_compare">
+          <field name="operator">==</field>
+          <value name="left">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+          <value name="right">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="logical_operation">
+          <field name="operator">and</field>
+          <value name="left">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+          <value name="right">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="logical_not">
+          <value name="value">
+            <shadow type="boolean">
+              <field name="value">false</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="delay">
+          <field name="unit">ms</field>
+          <value name="time">
+            <shadow type="number">
+              <field name="value">1000</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="elapsed_time">
+          <field name="unit">ms</field>
+        </block>
+        <block type="wait">
+          <field name="negate">false</field>
+          <value name="condition">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+        </block>
+    
+        <!--
+        <block type="forever"></block>
+        <block type="repeat">
+          <field name="negate">false</field>
+          <value name="condition">
+            <shadow type="boolean">
+              <field name="value">true</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="for">
+          <field name="variableName">i</field>
+          <value name="start">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+          <value name="stop">
+            <shadow type="number">
+              <field name="value">10</field>
+            </shadow>
+          </value>
+          <value name="step">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+        </block>
+      -->
+      </category>
+      <category name="Math" colour="#5C68A6">
+        <block type="number">
+          <field name="value">0</field>
+        </block>
+        <block type="number_property">
+          <field name="property">even</field>
+          <value name="value">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_divisibility">
+          <value name="left">
+            <shadow type="number">
+              <field name="value">10</field>
+            </shadow>
+          </value>
+          <value name="right">
+            <shadow type="number">
+              <field name="value">2</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_operation">
+          <field name="operator">sqrt</field>
+          <value name="number">
+            <shadow type="number">
+              <field name="value">9</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_trig">
+          <field name="operator">sin</field>
+          <value name="number">
+            <shadow type="number">
+              <field name="value">45</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_constant">
+          <field name="constant">PI</field>
+        </block>
+        <block type="number_round">
+          <field name="operator">round</field>
+          <value name="number">
+            <shadow type="number">
+              <field name="value">3.1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="math_arithmetic">
+          <field name="operator">ADD</field>
+          <value name="left">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+          <value name="right">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_modulo">
+          <value name="dividend">
+            <shadow type="number">
+              <field name="value">64</field>
+            </shadow>
+          </value>
+          <value name="divisor">
+            <shadow type="number">
+              <field name="value">10</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_random_int">
+          <value name="from">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+          <value name="to">
+            <shadow type="number">
+              <field name="value">100</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="number_random_float"></block>
+      </category>
+      <category name="Variables" colour="#A65C81" custom="VARIABLES">
+        <button text="Configure variables..." callbackKey="configureVariables"></button>
+        <block type="set_variable">
+          <field name="variableName"></field>
+          <value name="value">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="increment_variable">
+          <field name="variableName"></field>
+          <value name="value">
+            <shadow type="number">
+              <field name="value">1</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="variable">
+          <field name="variableName"></field>
+        </block>
+      </category>
+      <category name="Procedures" colour="#995ba5" custom="PROCEDURES">
+        <block type="proc_definition_0args">
+          <field name="procName">default</field>
+        </block>
+        <block type="proc_definition_1args">
+          <field name="procName">default</field>
+          <field name="arg0">arg0</field>
+        </block>
+        <block type="proc_definition_2args">
+          <field name="procName">default</field>
+          <field name="arg0">arg0</field>
+          <field name="arg1">arg1</field>
+        </block>
+        <block type="proc_definition_3args">
+          <field name="procName">default</field>
+          <field name="arg0">arg0</field>
+          <field name="arg1">arg1</field>
+          <field name="arg2">arg2</field>
+        </block>
+        <block type="return"></block>
+        <block type="proc_call_0args">
+          <field name="procName"></field>
+        </block>
+        <block type="proc_call_1args">
+          <field name="procName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="proc_call_2args">
+          <field name="procName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg1">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="proc_call_3args">
+          <field name="procName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg1">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg2">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <category name="Functions" colour="#745ba5" custom="FUNCTIONS">
+        <block type="func_definition_0args">
+          <field name="funcName">default</field>
+        </block>
+        <block type="func_definition_1args">
+          <field name="funcName">default</field>
+          <field name="arg0">arg0</field>
+        </block>
+        <block type="func_definition_2args">
+          <field name="funcName">default</field>
+          <field name="arg0">arg0</field>
+          <field name="arg1">arg1</field>
+        </block>
+        <block type="func_definition_3args">
+          <field name="funcName">default</field>
+          <field name="arg0">arg0</field>
+          <field name="arg1">arg1</field>
+          <field name="arg2">arg2</field>
+        </block>
+        <block type="return_value">
+          <value name="value">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="func_call_0args">
+          <field name="funcName"></field>
+        </block>
+        <block type="func_call_1args">
+          <field name="funcName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="func_call_2args">
+          <field name="funcName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg1">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+        <block type="func_call_3args">
+          <field name="funcName"></field>
+          <value name="arg0">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg1">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+          <value name="arg2">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <!--
+      <category name="Comments" colour="#a56d5b">
+        <block type="comment_statement">
+          <field name="comment">This is a comment</field>
+        </block>
+        <block type="comment_expression">
+          <field name="comment">This is a comment</field>
+          <value name="NAME">
+            <shadow type="number">
+              <field name="value">0</field>
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <sep></sep>
+      -->
+    </xml>
+    
+
+
+    <!-- JQuery/Popper/Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript"> if (typeof module != "undefined") { jQuery = $ = module.exports; } </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js" integrity="sha512-vC7BD+jzRl+id0vOcdbREyItckGhS46ZVJE4KRbfxgFtxQi6yTA41CMS9WJOp+YGWcdC/TCHbhjnEE7OF9/TIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GoldenLayout -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/goldenlayout.min.js" integrity="sha512-hyNFr2z6JxeT4lGuVVJJW2EH3O14204DzSCJtm/MBCNQxpqut2kP9JoDVn+FMJiOJFQqfErXY/WabAab3h0uUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Blockly -->
+    <script src="libs/google-blockly/blockly_compressed.js"></script>
+    <script src="libs/google-blockly/msg/js/en.js"></script>
+
+    <!-- FileSaver -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" integrity="sha512-DvLlX4EDfBZuesenAya2TOiF+cR7GbRsV+IElolKTYIj8JJHr9BFTcznTuRFabG26vcVsmDCcv2dL7m8Ov1XfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  	<!-- ACE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.min.js" integrity="sha512-4T3GMbqlA/8FAPZRSo/JbV6RNL4s/XkV86vNHzuHPHPeqKJWbV3Sp5KicgK3NwB+bd4KOm1Q6c7O3RNV2o6RPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="translations.js" type="text/javascript" ></script>
+    <script src="i18n.js" type="text/javascript" ></script>
+    <script src="XML.js" type="text/javascript"></script>
+    <script src="blocks2py.js" type="text/javascript"></script>
+    <script src="blocks.js" type="text/javascript"></script>
+    <script src="ide.js" type="text/javascript"></script>
+
+    <script>
+    $(document).ready(function () {
+      IDE.init();
+    });
+    </script>
+  </body>
+</html>
