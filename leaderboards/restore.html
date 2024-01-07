@@ -1,0 +1,13 @@
+<html>
+    <head></head>
+    <body>
+        <form id="restore" method="POST" enctype="multipart/form-data">
+            <input type="file" name="backup" />
+            <input type="submit">
+        </form>
+        <input type="text" name="url" id="url">
+        <script>
+        url.oninput = function() { restore.action = url.value; }
+        </script>
+    </body>
+</html>
