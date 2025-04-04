@@ -5,7 +5,7 @@
 layout: home
 ---
 
-I'm a programmer and here are some things I made. Find more on my [github page](https://github.com/RichoM).
+I'm a programmer and here are some things I made. Find more projects on my [github page](https://github.com/RichoM). Also, you can play some of my games in my [itch.io page](https://richo.itch.io/).
 
 ![separator](imgs/separator.png)
 

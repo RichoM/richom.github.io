@@ -4,7 +4,7 @@ title: RoboCupJunior
 permalink: /robocupjunior/
 ---
 
-This page briefly describes my experience with RoboCupJunior.
+This page briefly describes my experience with RoboCupJunior. For other projects, please visit my [main page](index.markdown)
 
 ![separator](imgs/separator.png)
 
