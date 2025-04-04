@@ -4,7 +4,7 @@ title: RoboCupJunior
 permalink: /robocupjunior/
 ---
 
-    This page briefly describes my experience with RoboCupJunior.
+This page briefly describes my experience with RoboCupJunior.
 
 ![separator](imgs/separator.png)
 
@@ -75,3 +75,7 @@ I'm very proud to say that this team went on to compete in _RoboCup 2024_ in Ein
 (2025)
 
 Since 2025, I have been part of the Rescue Sim development team, where I am responsible for improving the platform by fixing bugs and updating it to reflect this year’s rule changes.
+
+![separator](imgs/separator.png)
+
+That's all for now. Stay tuned!
