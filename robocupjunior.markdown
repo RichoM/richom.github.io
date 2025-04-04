@@ -6,6 +6,8 @@ permalink: /robocupjunior/
 
     This page briefly describes my experience with RoboCupJunior.
 
+![separator](imgs/separator.png)
+
 ## Roboliga Virtual 
 
 (2020 - Present)
@@ -36,7 +38,9 @@ For the soccer challenge, we developed several tools to enhance the simulation, 
 
 ![rsvisualizer](imgs/rsvisualizer.png)
 
-Thanks to its virtual nature, Roboliga Virtual has expanded to many Latin American countries. For Argentine teams, it now also serves as a qualifier for RoboCup Rescue Sim.
+Thanks to its virtual nature, Roboliga Virtual has expanded to many Latin American countries. For Argentine teams, it now also serves as a __qualifier for RoboCup Rescue Sim__.
+
+![separator](imgs/separator.png)
 
 ## Introductory Workshop for Teachers 
 
@@ -45,6 +49,8 @@ Thanks to its virtual nature, Roboliga Virtual has expanded to many Latin Americ
 My first real experience with _RCJ Rescue Sim_ was in 2022 when Gonzalo asked me to help design and conduct an introductory workshop for Panamanian teachers interested in participating in _RoboCup_.
 
 We developed a __Moodle course covering everything needed to create a basic controller__, including lessons, code examples, and exercises with their corresponding solutions.
+
+![separator](imgs/separator.png)
 
 ## Argentinian Team Mentorship
 
@@ -61,6 +67,8 @@ I'm very proud to say that this team went on to compete in _RoboCup 2024_ in Ein
 - __Super teams__: 1st place
 
 ![robocup-2024](imgs/robocup-2024.jpeg)
+
+![separator](imgs/separator.png)
 
 ## Rescue Sim Development Team 
 
